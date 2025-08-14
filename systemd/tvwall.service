@@ -1,0 +1,13 @@
+[Unit]
+Description=Intdev TV wall 
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=intdev
+ExecStart=/home/intdev/start_vlc.sh
+
+[Install]
+WantedBy=multi-user.target
