@@ -1,14 +1,18 @@
 [Unit]
-Description=Intdev TV wall 
-After=network.target
-StartLimitIntervalSec=0
+Description=Intdev TV wall
+After=multi-user.target graphical.target
+Wants=graphical.target
+
 [Service]
 Type=simple
 Restart=always
-RestartSec=1
+RestartSec=5
 User=intdev
-Environment=DISPLAY=:0 
+Group=video
+Environment=DISPLAY=:0
 ExecStart=/bin/bash /home/intdev/irl-tv-wall/start_vlc.sh
+KillMode=mixed
+TimeoutStopSec=10
 
 [Install]
 WantedBy=multi-user.target

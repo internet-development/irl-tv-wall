@@ -1,11 +1,9 @@
 #!/bin/bash
 
-LOG_FILE="/home/intdev/vlc.log"
-PID_FILE="/home/intdev/vlc.pid"
 MEDIA_DIR="/home/intdev/media"
 
+# Set up environment for Wayland
 export DISPLAY=:0
+export WAYLAND_DISPLAY=wayland-0
 
-nohup env DISPLAY=:0 cvlc --fullscreen --loop --no-osd --no-audio "$MEDIA_DIR"  > "$LOG_FILE" 2>&1 &
-echo $! > "$PID_FILE"
-echo "VLC started with PID: $!"
+cvlc --fullscreen --loop --no-osd --no-audio --intf dummy "$MEDIA_DIR"
