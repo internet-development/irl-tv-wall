@@ -8,9 +8,6 @@ if [ -S "$SOCKET_FILE" ]; then
     rm -f "$SOCKET_FILE"
 fi
 
-# Generate playlist from media files
-find "$MEDIA_DIR" -type f -iregex '.*\.\(m4v\|mov\|mp4\|avi\|mkv\|wmv\|flv\)$' > "$PLAYLIST_FILE"
-
 # Start mpv with the playlist
 mpv \
     --fullscreen \
